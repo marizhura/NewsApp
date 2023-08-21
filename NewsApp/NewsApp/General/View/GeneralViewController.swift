@@ -47,8 +47,6 @@ final class GeneralViewController: UIViewController {
     }
     
     // MARK: - Methods
-
-    // MARK: - Private methods
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(searchBar)
@@ -92,9 +90,9 @@ extension GeneralViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension GeneralViewController: UICollectionViewDelegate {
-    //func collectionView(_ collectionView: UICollectionView,
-       //                 didSelectItemAt indexPath: IndexPath) {
-       // navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        navigationController?.pushViewController(NewsViewController(), animated: true)
     }
-//}
+}
 
