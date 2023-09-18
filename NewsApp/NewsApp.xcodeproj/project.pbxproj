@@ -18,6 +18,10 @@
 		A341DE442A8E51EA00E2D063 /* GeneralCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A341DE432A8E51EA00E2D063 /* GeneralCollectionViewCell.swift */; };
 		A341DE462A8F95E300E2D063 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A341DE452A8F95E300E2D063 /* NewsViewController.swift */; };
 		A341DE492A9374D500E2D063 /* DetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A341DE482A9374D500E2D063 /* DetailsCollectionViewCell.swift */; };
+		A39D5A702AB0A8A7004BA5C1 /* GeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D5A6F2AB0A8A7004BA5C1 /* GeneralViewModel.swift */; };
+		A39D5A732AB89698004BA5C1 /* NewsResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D5A722AB89698004BA5C1 /* NewsResponseObject.swift */; };
+		A39D5A752AB8970F004BA5C1 /* ArticleResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D5A742AB8970F004BA5C1 /* ArticleResponseObject.swift */; };
+		A39D5A782AB898DC004BA5C1 /* ArticleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D5A772AB898DC004BA5C1 /* ArticleCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		A341DE432A8E51EA00E2D063 /* GeneralCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCollectionViewCell.swift; sourceTree = "<group>"; };
 		A341DE452A8F95E300E2D063 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		A341DE482A9374D500E2D063 /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		A39D5A6F2AB0A8A7004BA5C1 /* GeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewModel.swift; sourceTree = "<group>"; };
+		A39D5A722AB89698004BA5C1 /* NewsResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponseObject.swift; sourceTree = "<group>"; };
+		A39D5A742AB8970F004BA5C1 /* ArticleResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleResponseObject.swift; sourceTree = "<group>"; };
+		A39D5A772AB898DC004BA5C1 /* ArticleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				A341DE422A8E51CC00E2D063 /* View */,
+				A39D5A712AB0A8C2004BA5C1 /* ViewModel */,
+				A39D5A762AB8977B004BA5C1 /* Model */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -119,6 +129,24 @@
 				A341DE452A8F95E300E2D063 /* NewsViewController.swift */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		A39D5A712AB0A8C2004BA5C1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A39D5A6F2AB0A8A7004BA5C1 /* GeneralViewModel.swift */,
+				A39D5A772AB898DC004BA5C1 /* ArticleCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A39D5A762AB8977B004BA5C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A39D5A722AB89698004BA5C1 /* NewsResponseObject.swift */,
+				A39D5A742AB8970F004BA5C1 /* ArticleResponseObject.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,12 +225,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39D5A752AB8970F004BA5C1 /* ArticleResponseObject.swift in Sources */,
 				A341DE3B2A8D1F1A00E2D063 /* TechnologyViewController.swift in Sources */,
 				A341DE442A8E51EA00E2D063 /* GeneralCollectionViewCell.swift in Sources */,
 				A341DE372A8D1E2400E2D063 /* TabBarController.swift in Sources */,
 				A341DE272A8D1C7700E2D063 /* GeneralViewController.swift in Sources */,
 				A341DE462A8F95E300E2D063 /* NewsViewController.swift in Sources */,
+				A39D5A702AB0A8A7004BA5C1 /* GeneralViewModel.swift in Sources */,
+				A39D5A732AB89698004BA5C1 /* NewsResponseObject.swift in Sources */,
 				A341DE392A8D1F0900E2D063 /* BusinessViewController.swift in Sources */,
+				A39D5A782AB898DC004BA5C1 /* ArticleCellViewModel.swift in Sources */,
 				A341DE232A8D1C7700E2D063 /* AppDelegate.swift in Sources */,
 				A341DE492A9374D500E2D063 /* DetailsCollectionViewCell.swift in Sources */,
 			);
