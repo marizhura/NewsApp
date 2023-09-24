@@ -9,6 +9,7 @@ import UIKit
 
 protocol GeneralViewModelProtocol {
     var reloadData : (() -> Void)? { get set }
+    var showError: ((String) -> Void)? { get set }
     
     var numberOfCells: Int { get }
     
@@ -17,6 +18,7 @@ protocol GeneralViewModelProtocol {
 
 final class GeneralViewModel: GeneralViewModelProtocol {
     var reloadData: (() -> Void)?
+    var showError: (((String) -> Void)?)
     
     // MARK: - Properties
     var numberOfCells: Int {
@@ -25,7 +27,9 @@ final class GeneralViewModel: GeneralViewModelProtocol {
     
     private var articles: [ArticleResponseObject] = [] {
         didSet {
-            reloadData?()
+            DispatchQueue.main.async {
+                self.reloadData?()
+            }
         }
     }
     
@@ -40,16 +44,25 @@ final class GeneralViewModel: GeneralViewModelProtocol {
     }
     
     private func loadData() {
-        setupMockObjects()
+        ApiManager.getNews { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.showError?(error.localizedDescription)
+                }
+            }
+        }
     }
     
     private func setupMockObjects() {
         articles = [
-        ArticleResponseObject(title: "First object title", description: "First object description in the mock object", urlToImage: "...", publishedAt: "11.11.11"),
-        ArticleResponseObject(title: "Second object title", description: "Second object description in the mock object", urlToImage: "...", publishedAt: "11.11.11"),
-        ArticleResponseObject(title: "Third object title", description: "Third object description in the mock object", urlToImage: "...", publishedAt: "11.11.11"),
-        ArticleResponseObject(title: "Fourth object title", description: "Fourth object description in the mock object", urlToImage: "...", publishedAt: "11.11.11"),
-        ArticleResponseObject(title: "Fifth object title", description: "Fifth object description in the mock object", urlToImage: "...", publishedAt: "11.11.11")
+            ArticleResponseObject(title: "First object title", description: "First object description in the mock object", urlToImage: "...", date: "11.11.11"),
+            ArticleResponseObject(title: "Second object title", description: "Second object description in the mock object", urlToImage: "...", date: "11.11.11"),
+            ArticleResponseObject(title: "Third object title", description: "Third object description in the mock object", urlToImage: "...", date: "11.11.11"),
+            ArticleResponseObject(title: "Fourth object title", description: "Fourth object description in the mock object", urlToImage: "...", date: "11.11.11"),
+            ArticleResponseObject(title: "Fifth object title", description: "Fifth object description in the mock object", urlToImage: "...", date: "11.11.11")
         ]
     }
 }
