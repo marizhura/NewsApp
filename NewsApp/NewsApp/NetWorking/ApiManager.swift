@@ -8,15 +8,25 @@
 import Foundation
 
 final class ApiManager {
+    enum Category: String {
+        case general = "general"
+        case business = "business"
+        case technology = "technology"
+    }
+    
+    // MARK: - Properties
     private static let apiKey = "c01e04c915384c5f9adb0acdc3e81dad"
     private static let baseUrl = "https://newsapi.org/v2/"
-    private static let path = "everything"
+    private static let path = "top-headlines"
     
+    // MARK: - Methods
+
     // Create url path and make request
     static func getNews(completion: @escaping (Result<[ArticleResponseObject], Error>) -> ()) {
-        let stringUrl = baseUrl + path + "?sources=bbc-news&language=en" + "&apiKey=\(apiKey)"
+        let stringUrl = baseUrl + path + "?category=\(category.rawValue)&language=en" + "&apiKey=\(apiKey)"
         
         guard let url = URL(string: stringUrl) else { return }
+        print(srtingUrl)
         
         let session = URLSession.shared.dataTask(with: url) { data, _, error in
             handleResponse(data: data,
